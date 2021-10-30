@@ -1,4 +1,4 @@
-package db
+package main
 
 import (
 	"database/sql"
@@ -9,12 +9,20 @@ import (
 
 	"github.com/golang-migrate/migrate"
 	"github.com/golang-migrate/migrate/database/mysql"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/golang-migrate/migrate/v4"
+	"github.com/golang-migrate/migrate/v4/database/mysql"
+	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
 var dbname = "oshop" // os.Getenv("OSHOP_DB_NAME")
 var dbuser = "root" //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
 
+func main(){
+	Migrate()
+}
 func Migrate() bool {
 	var migrationDir = flag.String("migration.files", "./migrations", "Directory where migration files are located")
 	var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
