@@ -15,7 +15,7 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
-var dbname = "oshop"         // os.Getenv("OSHOP_DB_NAME")
+var dbname = "" //"oshop"         // os.Getenv("OSHOP_DB_NAME")
 var dbuser = "root"          //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
 
@@ -27,9 +27,10 @@ func Migrate() bool {
 	// var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
 	flag.Parse()
 
-	var mysqlConString = dbuser + ":@tcp(localhost)/" + dbpassword
-
+	var mysqlConString = dbuser + ":" + dbpassword +"@tcp(localhost)/" + dbname
 	db, err := sql.Open("mysql", mysqlConString)
+	// fmt.Println(mysqlDSN)
+	// fmt.Println(mysqlDSN)
 	// db, err := sql.Open("mysql", *mysqlDSN)
 	if err != nil {
 		log.Fatalf("Could not connect to Database. Encounered the following error: %v \n", err)
