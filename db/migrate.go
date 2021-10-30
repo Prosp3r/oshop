@@ -15,7 +15,7 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
-var dbname = "" //"oshop"         // os.Getenv("OSHOP_DB_NAME")
+var dbname = "oshop"         // os.Getenv("OSHOP_DB_NAME")
 var dbuser = "root"          //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
 
@@ -43,6 +43,7 @@ func Migrate() bool {
 	}
 
 	//Run migrations
+	// mysql.Config.DatabaseName = dbname
 	driver, err := mysql.WithInstance(db, &mysql.Config{})
 	if err != nil {
 		log.Fatalf("Could not start mysql migrations...%v \n", err)
