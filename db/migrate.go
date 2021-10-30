@@ -16,7 +16,7 @@ import (
 )
 
 var dbname = "oshop"         // os.Getenv("OSHOP_DB_NAME")
-var dbuser = "root"          //os.Getenv("OSHOP_DB_USER")
+var dbuser = "dbadmin"          //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
 
 func main() {
