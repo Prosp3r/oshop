@@ -5,7 +5,6 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"os"
 
 	"github.com/golang-migrate/migrate"
 	"github.com/golang-migrate/migrate/database/mysql"
@@ -16,22 +15,22 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
-var dbname = "oshop" // os.Getenv("OSHOP_DB_NAME")
-var dbuser = "root" //os.Getenv("OSHOP_DB_USER")
+var dbname = "oshop"         // os.Getenv("OSHOP_DB_NAME")
+var dbuser = "root"          //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
 
-func main(){
+func main() {
 	Migrate()
 }
 func Migrate() bool {
 	var migrationDir = flag.String("migration.files", "./migrations", "Directory where migration files are located")
-	var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
+	// var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
 	flag.Parse()
 
-	// var mysqlConString = dbuser + ":@tcp(localhost)/" + dbpassword
+	var mysqlConString = dbuser + ":@tcp(localhost)/" + dbpassword
 
-	// db, err := sql.Open("mysql", mysqlConString)
-	db, err := sql.Open("mysql", *mysqlDSN)
+	db, err := sql.Open("mysql", mysqlConString)
+	// db, err := sql.Open("mysql", *mysqlDSN)
 	if err != nil {
 		log.Fatalf("Could not connect to Database. Encounered the following error: %v \n", err)
 		return false
@@ -63,6 +62,6 @@ func Migrate() bool {
 	}
 
 	log.Println("Database migration complete")
-	
+
 	return true
 }
