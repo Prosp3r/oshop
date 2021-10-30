@@ -1,0 +1,3 @@
+-- # docker run --name dbo-mysql -p 3307:3306  -e MYSQL_ROOT_PASSWORD=password1 -d mysql
+-- # CREATE DATABASE oshop;
+-- # USE DATABASE oshop;
