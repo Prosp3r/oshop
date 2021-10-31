@@ -24,7 +24,7 @@ services:
       - ./dbdata:/var/lib/mysql
 
     command: 
-      go run migrate.go
+      # go run migrate.go
 
   # oshopsrvr:
   #   command: go run migrate.go
