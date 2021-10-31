@@ -23,10 +23,13 @@ services:
       # - ./init:/docker-entrypoint-initdb.d/init-script.sql
       - ./dbdata:/var/lib/mysql
 
-  oshopsrvr:
-    command: go run migrate.go
-    depends_on:
-      - oshopdb
+    command: 
+      go run migrate.go
+
+  # oshopsrvr:
+  #   command: go run migrate.go
+  #   depends_on:
+  #     - oshopdb
 # Names our volume
 volumes:
   my-db:
