@@ -1,7 +1,7 @@
 version: '3.3'
 services:
-  db:
-    image: mysql
+  oshopdb:
+    image: maraidb:10.6
     restart: always
     environment:
       # MYSQL_DATABASE: 'db'
@@ -22,6 +22,11 @@ services:
       - ./init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
       # - ./init:/docker-entrypoint-initdb.d/init-script.sql
       - ./dbdata:/var/lib/mysql
+
+  oshopsrvr:
+    command: go run migrate.go
+    depends_on:
+      - oshopdb
 # Names our volume
 volumes:
   my-db:
