@@ -1,5 +1,5 @@
-FROM golang:alpine 
-RUN apk add git
+FROM golang:1.7-alpine
+RUN apk add --no-cache git
 
 # Copy dependency files in first to take advantage of Docker caching.
 COPY go.mod go.sum ./
