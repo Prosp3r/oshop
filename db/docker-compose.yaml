@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   oshopdb:
-    image: maraidb:10.6
+    image: mysql
     restart: always
     environment:
       # MYSQL_DATABASE: 'db'
