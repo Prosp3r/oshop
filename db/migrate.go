@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"os"
+	// "os"
 
 	"github.com/golang-migrate/migrate"
 	"github.com/golang-migrate/migrate/database/mysql"

@@ -4,7 +4,9 @@ CREATE USER 'dbadmin'@'%' IDENTIFIED BY 'password1';
 GRANT CREATE, ALTER, INDEX, LOCK TABLES, REFERENCES, UPDATE, DELETE, DROP, SELECT, INSERT ON `oshop`.* TO 'dbadmin'@'%';
 FLUSH PRIVILEGES;
 --
-DROP TABLE payments;
+USE oshop;
+--
+DROP TABLE IF EXISTS payments;
 --
 CREATE TABLE payments (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -15,7 +17,7 @@ CREATE TABLE payments (
     paymentstatus VARCHAR(50)
 );
 --
-DROP TABLE purchases;
+DROP TABLE IF EXISTS purchases;
 --
 CREATE TABLE purchases (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -28,14 +30,14 @@ CREATE TABLE purchases (
     purchasestatus VARCHAR(20)
 );
 --
-DROP TABLE views;
+DROP TABLE IF EXISTS views;
 --
 CREATE TABLE views (
     productid INT,
     views BIGINT
 );
 --
-DROP TABLE products;
+DROP TABLE IF EXISTS products;
 --
 CREATE TABLE products(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -51,7 +53,7 @@ INSERT INTO poducts (id, title, details, dateadded, quantity, itemstatus) VALUES
 (NULL, "Logitech Keyboard K244", "Logitech Mouse M234", "2021-10-30 03:25:02", "100", "active"),
 (NULL, "Black Men Dress Shoes", "Logitech Mouse M234", "2021-10-30 03:25:02", "100", "active");
 --
-DROP TABLE user;
+DROP TABLE IF EXISTS user;
 --
 CREATE TABLE user (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
