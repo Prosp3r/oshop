@@ -22,14 +22,14 @@ var dbpassword = os.Getenv("OSHOP_DB_PASSWORD")
 
 func Migrate() bool {
 	var migrationDir = flag.String("migration.files", "./migrations", "Directory where migration files are located")
-	// var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
+	var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
 	flag.Parse()
 
-	var mysqlConString = dbuser + ":" + dbpassword + "@tcp(localhost)/" + dbname
-	db, err := sql.Open("mysql", mysqlConString)
+	//var mysqlConString = dbuser + ":" + dbpassword + "@tcp(localhost)/" + dbname
+	//db, err := sql.Open("mysql", mysqlConString)
 	// fmt.Println(mysqlDSN)
 	// fmt.Println(mysqlDSN)
-	// db, err := sql.Open("mysql", *mysqlDSN)
+	db, err := sql.Open("mysql", *mysqlDSN)
 	if err != nil {
 		log.Fatalf("Could not connect to Database. Encounered the following error: %v \n", err)
 		return false
