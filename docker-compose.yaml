@@ -35,13 +35,13 @@ services:
         CMD_NAME: 'oshop'
         PORT: 8080
         CGO_ENABLED: '0'
-    depends_on:
-      - oshopdb
     restart: always
     ports:
       - '8080:8080'
     expose:
       - '8080'
+    depends_on:
+      - oshopdb
 # Names our volume
 volumes:
   my-db:
