@@ -29,7 +29,7 @@ RUN go mod download
 # Copy everything else from the current directory to the PWD(Present Working Directory) inside the container
 COPY . .
 
-WORKDIR /
+# WORKDIR /
 RUN go build -o oshop .
 EXPOSE 8080
 CMD ["./oshop"]
