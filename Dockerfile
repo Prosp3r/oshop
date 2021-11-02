@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:laest
 RUN apk add --no-cache git
 
 # Add Maintainer Info
