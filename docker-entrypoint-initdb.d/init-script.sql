@@ -49,9 +49,9 @@ CREATE TABLE products(
 );
 --
 INSERT INTO products (id, title, details, dateadded, quantity, itemstatus) VALUES 
-(NULL, "Logitech Mouse M234", "Logitech Mouse M234", "2021-10-30 03:25:02", "100", "active"),
-(NULL, "Logitech Keyboard K244", "Logitech Mouse M234", "2021-10-30 03:25:02", "100", "active"),
-(NULL, "Black Men Dress Shoes", "Logitech Mouse M234", "2021-10-30 03:25:02", "100", "active");
+(NULL, "Logitech Mouse M234", "[Logitech Mouse M234]", "2021-10-30 03:25:02", "100", "active"),
+(NULL, "Logitech Keyboard K244", "[Logitech Mouse M234]", "2021-10-30 03:25:02", "100", "active"),
+(NULL, "Black Men Dress Shoes", "[Logitech Mouse M234]", "2021-10-30 03:25:02", "100", "active");
 --
 DROP TABLE IF EXISTS user;
 --
