@@ -27,7 +27,7 @@ func Migrate() bool {
 	// var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
 	flag.Parse()
 
-	var mysqlConString = dbuser + ":" + dbpassword + "@tcp("+ dbhost +":"+dbport+")/"
+	var mysqlConString = dbuser + ":" + dbpassword + "@tcp("+ dbhost +":"+dbport+")/"+ dbname
 	db, err := sql.Open("mysql", mysqlConString)
 	// fmt.Println(mysqlDSN)
 	// fmt.Println(mysqlDSN)
