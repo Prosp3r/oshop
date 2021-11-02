@@ -22,8 +22,8 @@ services:
       - ./docker-entrypoint-initdb.d/init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
       - ./dbdata:/var/lib/mysql
 
-    command: 
-      go run migrate.go
+    # command: 
+    #   go run migrate.go
 
   oshopsrvr:
     build:
