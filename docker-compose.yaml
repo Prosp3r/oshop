@@ -25,10 +25,23 @@ services:
     command: 
       go run migrate.go
 
-  # oshopsrvr:
-  #   command: go run migrate.go
-  #   depends_on:
-  #     - oshopdb
+  oshopsrvr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        HOME_DIR: $USER_HOME_DIR
+        VERSION: 1
+        CMD_NAME: $CMD_NAME
+        PORT: $PORT
+        CGO_ENABLED: $CGO_ENABLED
+    depends_on:
+      - oshoppdb
+    restart: always
+    ports:
+      - '8080:8080'
+    expose:
+      - '8080'
 # Names our volume
 volumes:
   my-db:

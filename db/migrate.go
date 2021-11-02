@@ -16,16 +16,18 @@ import (
 	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
+var dbhost = "oshopdb" //os.Getenv("OSHOP_DB_HOST")
 var dbname = "oshop" //os.Getenv("OSHOP_DB_NAME")
 var dbuser = "dbadmin" //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
+var dbport = "3306" //os.Getenv("OSHOP_DB_PORT")
 
 func Migrate() bool {
 	var migrationDir = flag.String("migration.files", "./migrations", "Directory where migration files are located")
 	// var mysqlDSN = flag.String("mysql.dsn", os.Getenv("MYSQL_DSN"), "Mysql DSN")
 	flag.Parse()
 
-	var mysqlConString = dbuser + ":" + dbpassword + "@tcp(localhost)/" + dbname
+	var mysqlConString = dbuser + ":" + dbpassword + "@tcp("+ dbhost +")/" + dbname
 	db, err := sql.Open("mysql", mysqlConString)
 	// fmt.Println(mysqlDSN)
 	// fmt.Println(mysqlDSN)

@@ -1,6 +1,9 @@
 FROM golang:1.7-alpine
 RUN apk add --no-cache git
 
+# Add Maintainer Info
+LABEL maintainer="Prosper O <sirpos@gmail.com>"
+
 # Copy dependency files in first to take advantage of Docker caching.
 COPY go.mod go.sum ./
 
@@ -10,10 +13,9 @@ RUN go mod download
 # Copy everything else from the current directory to the PWD(Present Working Directory) inside the container
 COPY . .
 
-# RUN mkdir /app
-# ADD ./server /app
-# COPY ./pb /pb
 WORKDIR /
-RUN go build -o oshopapp .
-EXPOSE 8080
+RUN go build -o oshop .
+EXPOSE 80
 CMD ["./oshop"]
+
+# docker build -f Dockerfile -t oshop:latest .
