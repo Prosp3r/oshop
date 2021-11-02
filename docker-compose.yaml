@@ -36,7 +36,7 @@ services:
         PORT: $PORT
         CGO_ENABLED: $CGO_ENABLED
     depends_on:
-      - oshoppdb
+      - oshopdb
     restart: always
     ports:
       - '8080:8080'
