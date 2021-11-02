@@ -39,7 +39,7 @@ services:
       args:
         # HOME_DIR: $USER_HOME_DIR
         VERSION: 1
-        CMD_NAME: 'oshop'
+        CMD_NAME: 'oshopsrvr'
         PORT: 8080
         CGO_ENABLED: '0'
     restart: always
