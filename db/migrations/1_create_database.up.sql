@@ -1,1 +1,1 @@
-CREATE DATABASE oshop;
+CREATE DATABASE oshopdb;
