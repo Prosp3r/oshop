@@ -18,7 +18,7 @@ import (
 
 var dbhost = "oshopdb" //os.Getenv("OSHOP_DB_HOST")
 var dbname = "oshop" //os.Getenv("OSHOP_DB_NAME")
-var dbuser = "dbadmin" //os.Getenv("OSHOP_DB_USER")
+var dbuser = "root" //os.Getenv("OSHOP_DB_USER")
 var dbpassword = "password1" //os.Getenv("OSHOP_DB_PASSWORD")
 var dbport = "3306" //os.Getenv("OSHOP_DB_PORT")
 
