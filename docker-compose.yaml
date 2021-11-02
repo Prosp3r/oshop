@@ -30,11 +30,11 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        HOME_DIR: $USER_HOME_DIR
+        # HOME_DIR: $USER_HOME_DIR
         VERSION: 1
-        CMD_NAME: $CMD_NAME
-        PORT: $PORT
-        CGO_ENABLED: $CGO_ENABLED
+        CMD_NAME: 'oshop'
+        PORT: 8080
+        CGO_ENABLED: '0'
     depends_on:
       - oshopdb
     restart: always

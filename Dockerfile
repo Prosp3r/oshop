@@ -23,7 +23,7 @@ COPY . .
 
 WORKDIR /
 RUN go build -o oshop .
-EXPOSE 80
+EXPOSE 8080
 CMD ["./oshop"]
 
 # docker build -f Dockerfile -t oshop:latest .
