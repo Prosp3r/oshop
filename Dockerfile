@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:latest
 RUN apk add --no-cache git
 
 # Add Maintainer Info
@@ -13,10 +13,6 @@ RUN go mod download
 #RUN go get github.com/go-sql-driver/mysql
 #RUN go get github.com/golang-migrate/migrate
 #RUN go get github.com/golang-migrate/migrate/v4
-
-#   github.com/go-sql-driver/mysql v1.6.0
-# 	github.com/golang-migrate/migrate v3.5.4+incompatible
-# 	github.com/golang-migrate/migrate/v4 v4.15.1
 
 # Copy everything else from the current directory to the PWD(Present Working Directory) inside the container
 COPY . .
