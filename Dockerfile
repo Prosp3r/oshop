@@ -1,25 +1,30 @@
-FROM golang:latest
-# RUN apk add --no-cache git
+FROM golang:1.15.2-alpine3.12
+
+RUN apk add --no-cache git
 
 # Add Maintainer Info
 LABEL maintainer="Prosper O <sirpos@gmail.com>"
 
-RUN apt-get update
-RUN apt-get upgrade -y
+# Build Args
+ARG HOME_DIR
+ARG MODULE_NAME
+ARG CMD_NAME
+ARG LOG_DIR_NAME
+ARG VOLUME_DIR
+ARG VERSION
+ARG PORT
+ARG CGO_ENABLED
 
-ENV GOBIN /go/bin
+RUN echo "Build number:" . $VERSION
 
-# RUN go get github.com/go-sql-driver/mysql
+# Set the Current Working Directory inside the container
+WORKDIR $MODULE_NAME
 
 # Copy dependency files in first to take advantage of Docker caching.
-# COPY go.mod go.sum ./
+COPY go.mod go.sum ./
 
 # Get and install listed dependencies in one, rather than go get & go install.
 RUN go mod download
-
-#RUN go get github.com/go-sql-driver/mysql
-# RUN go get github.com/golang-migrate/migrate
-# RUN go get github.com/golang-migrate/migrate/v4
 
 # Copy everything else from the current directory to the PWD(Present Working Directory) inside the container
 COPY . .
