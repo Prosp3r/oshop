@@ -18,7 +18,7 @@ ARG CGO_ENABLED
 RUN echo "Build number:" . $VERSION
 
 # Set the Current Working Directory inside the container
-WORKDIR $MODULE_NAME
+WORKDIR github.com/oshop
 
 # Copy dependency files in first to take advantage of Docker caching.
 COPY go.mod go.sum ./
