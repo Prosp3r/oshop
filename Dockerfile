@@ -1,5 +1,5 @@
 FROM golang:latest
-RUN apk add --no-cache git
+# RUN apk add --no-cache git
 
 # Add Maintainer Info
 LABEL maintainer="Prosper O <sirpos@gmail.com>"
