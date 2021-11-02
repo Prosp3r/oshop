@@ -22,9 +22,9 @@ DROP TABLE IF EXISTS purchases;
 CREATE TABLE purchases (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     userid INT,
-    productdetails JSON CHECK(JSON_VALID(productdetails)),
-    deliverydetails  JSON CHECK(JSON_VALID(deliverydetails)),
-    paymentdetails JSON CHECK(JSON_VALID(paymentdetails)),
+    productdetails TEXT,
+    deliverydetails  TEXT,
+    paymentdetails TEXT,
     checkoutdate TIMESTAMP on update current_timestamp NOT NULL,
     totalprice DECIMAL(10,2),
     purchasestatus VARCHAR(20)
@@ -42,7 +42,7 @@ DROP TABLE IF EXISTS products;
 CREATE TABLE products(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
-    details JSON CHECK(JSON_VALID(details)),
+    details TEXT,
     dateadded TIMESTAMP on update current_timestamp NOT NULL,
     quantity INT(9),
     itemstatus VARCHAR(10)
