@@ -9,17 +9,17 @@ RUN apt-get upgrade -y
 
 ENV GOBIN /go/bin
 
-RUN go get github.com/go-sql-driver/mysql
+# RUN go get github.com/go-sql-driver/mysql
 
 # Copy dependency files in first to take advantage of Docker caching.
 # COPY go.mod go.sum ./
 
 # Get and install listed dependencies in one, rather than go get & go install.
-# RUN go mod download
+RUN go mod download
 
 #RUN go get github.com/go-sql-driver/mysql
-RUN go get github.com/golang-migrate/migrate
-RUN go get github.com/golang-migrate/migrate/v4
+# RUN go get github.com/golang-migrate/migrate
+# RUN go get github.com/golang-migrate/migrate/v4
 
 # Copy everything else from the current directory to the PWD(Present Working Directory) inside the container
 COPY . .
