@@ -1,20 +1,25 @@
 version: '3.3'
 services:
   oshopdb:
-    image: mysql
-    restart: always
     volumes:
       # - ./docker-entrypoint-initdb.d/init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - ./dbdata:/var/lib/mysql
+    build: 
+      context: .
+      dockerfile: ./build/mysql/Dockerfile
+
+    # image: mysql
+    restart: always
     environment:
-      # MYSQL_DATABASE: 'db'
+      MYSQL_DATABASE: 'oshopdb'
       # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'root'
+      MYSQL_USER: 'dbadmin'
       # You can use whatever password you like
       MYSQL_PASSWORD: 'password1'
       # Password for root access
       MYSQL_ROOT_PASSWORD: 'password1'
+      MYSQL_PORT: 3306
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
