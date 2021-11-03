@@ -37,6 +37,8 @@ func Migrate() bool {
 		return false
 	}
 
+	log.Fatalf("Connection to DB sussessful %v", db)
+
 	if err := db.Ping(); err != nil {
 		log.Fatalf("Coould not ping db at this time...%v \n", err)
 		return false
