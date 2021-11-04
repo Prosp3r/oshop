@@ -68,4 +68,5 @@ INSERT INTO user (id, email, userpass, accountstatus, usertype, joindate) VALUES
 (NULL, "sirpros@gmail.com", "password1", "ACTIVE", "1", "2021-10-21 20:12:20"),
 (NULL, "prosper@samedayshop.com", "password1", "ACTIVE", "2", "2021-10-21 20:12:20"),
 (NULL, "prosper@gmail.com", "password1", "ACTIVE", "2", "2021-10-21 20:12:20");
+(NULL, "prosper212@gmail.com", "password1", "ACTIVE", "2", "2021-10-21 20:12:20");
 --

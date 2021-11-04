@@ -35,8 +35,8 @@ func main() {
 }
 
 func HomePage(w http.ResponseWriter, r *http.Request){
-	msg := []byte("Welcome Oshop")
-	w.Write(msg)
+	msg := "Welcome Oshop"
+	w.Write([]byte(msg))
 }
 
 func GetProducts(w http.ResponseWriter, r *http.Request)    {}
